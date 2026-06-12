@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angular Senior Dev — Job Search Intelligence Report 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,300;0,700;1,300&display=swap');
+
+  :root {
+    --ink: #0f1117;
+    --ink-light: #3a3f52;
+    --paper: #f8f7f4;
+    --accent: #2563eb;
+    --accent-2: #7c3aed;
+    --gold: #d97706;
+    --green: #059669;
+    --red: #dc2626;
+    --border: #e2e0da;
+    --tier1: #059669;
+    --tier2: #2563eb;
+    --tier3: #d97706;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--ink);
+    color: #fff;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  nav .brand { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #a0aec0; }
+  nav .brand span { color: #60a5fa; }
+  nav .tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+  nav .tab {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: #a0aec0;
+    background: transparent;
+    transition: all .15s;
+  }
+  nav .tab:hover, nav .tab.active { background: #1e293b; color: #fff; border-color: #334155; }
+
+  /* SECTIONS */
+  .section { display: none; padding: 40px 32px; max-width: 1200px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .subtitle { color: var(--ink-light); font-size: 16px; max-width: 680px; margin-bottom: 32px; }
+
+  /* HERO STATS */
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .stat-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .stat-card .label { font-size: 12px; color: var(--ink-light); margin-top: 4px; }
+
+  /* JOB CARDS */
+  .job-grid { display: grid; gap: 20px; }
+  .job-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    transition: box-shadow .2s;
+  }
+  .job-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.07); }
+  .job-card .tier-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: .04em;
+  }
+  .tier-1 { background: #d1fae5; color: var(--tier1); }
+  .tier-2 { background: #dbeafe; color: var(--tier2); }
+  .tier-3 { background: #fef3c7; color: var(--tier3); }
+
+  .job-header { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+  .job-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    background: #f1f5f9;
+  }
+  .job-title { font-weight: 700; font-size: 17px; }
+  .job-company { font-size: 13px; color: var(--accent); font-weight: 600; }
+
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .pill {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid currentColor;
+    letter-spacing: .03em;
+  }
+  .pill-remote { color: var(--green); border-color: #a7f3d0; background: #f0fdf4; }
+  .pill-hybrid { color: var(--accent-2); border-color: #ddd6fe; background: #faf5ff; }
+  .pill-onsite { color: var(--gold); border-color: #fde68a; background: #fffbeb; }
+  .pill-salary { color: var(--ink); border-color: var(--border); background: var(--paper); }
+  .pill-exp { color: var(--ink-light); border-color: var(--border); background: var(--paper); }
+
+  .ats-bar-wrap { margin-bottom: 14px; }
+  .ats-label { font-size: 12px; color: var(--ink-light); margin-bottom: 4px; display: flex; justify-content: space-between; }
+  .ats-bar { height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
+  .ats-fill { height: 100%; border-radius: 4px; transition: width .6s; }
+  .fill-high { background: linear-gradient(90deg, var(--green), #34d399); }
+  .fill-med { background: linear-gradient(90deg, var(--accent), #60a5fa); }
+  .fill-low { background: linear-gradient(90deg, var(--gold), #fbbf24); }
+
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+  .skills-box { background: var(--paper); border-radius: 8px; padding: 12px; }
+  .skills-box h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-light); margin-bottom: 8px; }
+  .skill-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .skill-match { background: #d1fae5; color: #065f46; }
+  .skill-miss { background: #fee2e2; color: #991b1b; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead { background: var(--ink); color: #fff; }
+  thead th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: .04em; white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f8fafc; }
+  tbody td { padding: 12px 14px; vertical-align: top; }
+  .rank-cell { font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: var(--accent); }
+  .prob-high { color: var(--green); font-weight: 700; }
+  .prob-med { color: var(--accent); font-weight: 700; }
+  .prob-low { color: var(--gold); font-weight: 700; }
+  .priority-1 { background: #d1fae5; color: #065f46; padding: 3px 10px; border-radius: 20px; font-weight: 700; font-size: 12px; }
+  .priority-2 { background: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 20px; font-weight: 700; font-size: 12px; }
+  .priority-3 { background: #fef3c7; color: #92400e; padding: 3px 10px; border-radius: 20px; font-weight: 700; font-size: 12px; }
+
+  /* ACCORDION */
+  .accordion { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .accordion-header {
+    padding: 16px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    user-select: none;
+  }
+  .accordion-header:hover { background: var(--paper); }
+  .accordion-header .arrow { font-size: 10px; transition: transform .2s; }
+  .accordion-header.open .arrow { transform: rotate(180deg); }
+  .accordion-body { display: none; padding: 16px 20px; background: var(--paper); border-top: 1px solid var(--border); }
+  .accordion-body.open { display: block; }
+
+  /* PLAN */
+  .plan-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .plan-week {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .plan-week .week-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+  .plan-week h3 { font-size: 15px; margin-bottom: 12px; }
+  .plan-item { display: flex; gap: 8px; margin-bottom: 8px; font-size: 13px; align-items: flex-start; }
+  .plan-item::before { content: '→'; color: var(--accent); font-family: monospace; flex-shrink: 0; margin-top: 1px; }
+
+  /* INTERVIEW */
+  .qa-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 14px; }
+  .qa-card .q { font-weight: 600; color: var(--ink); margin-bottom: 8px; font-size: 14px; }
+  .qa-card .q::before { content: 'Q  '; font-family: 'IBM Plex Mono', monospace; color: var(--accent); font-size: 12px; }
+  .qa-card .a { color: var(--ink-light); font-size: 13px; line-height: 1.7; }
+  .qa-card .a::before { content: 'A  '; font-family: 'IBM Plex Mono', monospace; color: var(--green); font-size: 12px; }
+
+  /* SOURCES GRID */
+  .sources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .source-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .source-card .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .dot-green { background: var(--green); }
+  .dot-blue { background: var(--accent); }
+  .dot-purple { background: var(--accent-2); }
+
+  /* TEMPLATES */
+  .template-box {
+    background: var(--ink);
+    color: #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+    white-space: pre-wrap;
+  }
+  .template-box .tvar { color: #60a5fa; }
+
+  /* CHIPS */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #f1f5f9;
+    color: var(--ink-light);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* SALARY TABLE */
+  .salary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .salary-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .salary-card .region { font-size: 11px; color: var(--ink-light); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+  .salary-card .range { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 600; color: var(--accent); }
+  .salary-card .note { font-size: 12px; color: var(--ink-light); margin-top: 4px; }
+
+  /* HIDDEN OPPS */
+  .hidden-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .hidden-card {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .hidden-card .tag { font-size: 10px; color: #a5b4fc; font-family: 'IBM Plex Mono', monospace; letter-spacing: .06em; margin-bottom: 8px; }
+  .hidden-card h3 { color: #e0e7ff; font-size: 15px; margin-bottom: 8px; }
+  .hidden-card p { color: #c7d2fe; font-size: 13px; line-height: 1.6; }
+
+  @media (max-width: 700px) {
+    .section { padding: 24px 16px; }
+    h1 { font-size: 26px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    nav { padding: 12px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">// <span>ANGULAR</span>.CAREERS 2026</div>
+  <div class="tabs">
+    <button class="tab active" onclick="show('overview')">Overview</button>
+    <button class="tab" onclick="show('jobs')">Job Listings</button>
+    <button class="tab" onclick="show('ranktable')">Rank Table</button>
+    <button class="tab" onclick="show('interview')">Interview Prep</button>
+    <button class="tab" onclick="show('plan')">30-Day Plan</button>
+    <button class="tab" onclick="show('templates')">Templates</button>
+    <button class="tab" onclick="show('hidden')">Hidden Opps</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════ OVERVIEW ═══════════════════════════════════ -->
+<div id="overview" class="section active">
+  <h1>Angular Senior Dev<br>Job Intelligence Report</h1>
+  <p class="subtitle">Personalised market analysis, ATS strategy & hiring intelligence for a Senior Angular Engineer with 5+ years of experience. Pakistan-based | June 2026</p>
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="num">550+</div><div class="label">Remote Angular roles globally</div></div>
+    <div class="stat-card"><div class="num">200+</div><div class="label">Angular roles in Pakistan</div></div>
+    <div class="stat-card"><div class="num">$58k–$87k</div><div class="label">Remote senior salary range</div></div>
+    <div class="stat-card"><div class="num">10</div><div class="label">Curated roles analysed</div></div>
+    <div class="stat-card"><div class="num">87%</div><div class="label">Your avg. ATS match (Tier 1)</div></div>
+  </div>
+
+  <h2>Salary Benchmarks by Region</h2>
+  <div class="salary-grid">
+    <div class="salary-card"><div class="region">Pakistan (Local PKR)</div><div class="range">PKR 28–39L</div><div class="note">Senior, onsite/hybrid</div></div>
+    <div class="salary-card"><div class="region">Pakistan (Remote USD)</div><div class="range">$7k–$18k/yr</div><div class="note">USD via US/EU employer</div></div>
+    <div class="salary-card"><div class="region">UAE / Dubai (Onsite)</div><div class="range">AED 10–18k/mo</div><div class="note">Senior, with visa sponsorship</div></div>
+    <div class="salary-card"><div class="region">UK Remote</div><div class="range">£45k–£75k</div><div class="note">Full remote, worldwide accepted</div></div>
+    <div class="salary-card"><div class="region">Europe Remote</div><div class="range">€50k–€90k</div><div class="note">DE/NL/SE companies</div></div>
+    <div class="salary-card"><div class="region">USA (Remote Intl)</div><div class="range">$60k–$90k</div><div class="note">Arc.dev / Turing / US startups</div></div>
+    <div class="salary-card"><div class="region">Canada Remote</div><div class="range">CAD 70k–100k</div><div class="note">Rare, timezone flexibility needed</div></div>
+    <div class="salary-card"><div class="region">Platforms (Upwork/Toptal)</div><div class="range">$35–$85/hr</div><div class="note">Freelance, contract-based</div></div>
+  </div>
+
+  <h2>Your Skill Profile vs Market Demand</h2>
+  <div class="job-card">
+    <h3>Market Demand Analysis — Your Stack Mapped to 2026 Job Postings</h3>
+    <div style="margin-top:12px;">
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>Angular (all versions)</span><span>96%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:96%"></div></div>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>TypeScript</span><span>95%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:95%"></div></div>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>RxJS</span><span>88%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:88%"></div></div>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>NgRx / State Management</span><span>72%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:72%"></div></div>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>Angular Signals (Angular 17+)</span><span>65%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-med" style="width:65%"></div></div>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>SSR / Hydration</span><span>58%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-med" style="width:58%"></div></div>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>REST APIs</span><span>92%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:92%"></div></div>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>Angular Material / PrimeNG</span><span>74%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:74%"></div></div>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>Micro Frontends</span><span>41%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-low" style="width:41%"></div></div>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>Jest / Cypress / Testing</span><span>69%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-med" style="width:69%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Top Job Sources — Active in June 2026</h2>
+  <div class="sources-grid">
+    <div class="source-card"><div class="dot dot-green"></div>LinkedIn Pakistan</div>
+    <div class="source-card"><div class="dot dot-green"></div>Indeed (Remote PKR/USD)</div>
+    <div class="source-card"><div class="dot dot-green"></div>Arc.dev</div>
+    <div class="source-card"><div class="dot dot-green"></div>Bayt.com (Middle East)</div>
+    <div class="source-card"><div class="dot dot-blue"></div>Glassdoor Remote</div>
+    <div class="source-card"><div class="dot dot-blue"></div>Wellfound (AngelList)</div>
+    <div class="source-card"><div class="dot dot-blue"></div>Crossover</div>
+    <div class="source-card"><div class="dot dot-blue"></div>We Work Remotely</div>
+    <div class="source-card"><div class="dot dot-purple"></div>Naukri Gulf (Middle East)</div>
+    <div class="source-card"><div class="dot dot-purple"></div>Remotive.io</div>
+    <div class="source-card"><div class="dot dot-purple"></div>Working Nomads</div>
+    <div class="source-card"><div class="dot dot-purple"></div>Turing.com</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ JOBS ═══════════════════════════════════ -->
+<div id="jobs" class="section">
+  <h1>Curated Job Listings</h1>
+  <p class="subtitle">10 roles analysed with full ATS breakdown, skill mapping, and hiring strategy. Jobs prioritised by match % and Pakistan-friendliness.</p>
+
+  <div class="job-grid">
+
+    <!-- JOB 1 -->
+    <div class="job-card">
+      <span class="tier-badge tier-1">TIER 1 — APPLY NOW</span>
+      <div class="job-header">
+        <div class="job-icon">🏦</div>
+        <div>
+          <div class="job-title">Senior Angular Developer (Banking Domain)</div>
+          <div class="job-company">Metamorf Group — Dubai, UAE</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-hybrid">Hybrid / On-site Dubai</span>
+        <span class="pill pill-salary">AED 12,000–16,000/mo</span>
+        <span class="pill pill-exp">5+ Years</span>
+        <span class="pill pill-salary">Visa Sponsorship Available</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>91%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:91%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular</span><span class="skill-tag skill-match">TypeScript</span><span class="skill-tag skill-match">RxJS</span><span class="skill-tag skill-match">REST APIs</span><span class="skill-tag skill-match">NgRx</span><span class="skill-tag skill-match">Bootstrap</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">React (40%)</span><span class="skill-tag skill-miss">Banking domain exp</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">Emphasise enterprise Angular experience. The role requires Angular (60%) + React (40%) — highlight any React exposure. UAE visa sponsorship mentioned. Apply via LinkedIn and Bayt.com. Salary is competitive for the region. Probability of interview: <strong>High (78%)</strong></p>
+      </div>
+    </div>
+
+    <!-- JOB 2 -->
+    <div class="job-card">
+      <span class="tier-badge tier-1">TIER 1 — APPLY NOW</span>
+      <div class="job-header">
+        <div class="job-icon">🌐</div>
+        <div>
+          <div class="job-title">Senior Angular Developer (Full Remote — Pakistan)</div>
+          <div class="job-company">Smart Working Solutions — Fully Remote</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-remote">100% Remote</span>
+        <span class="pill pill-salary">Competitive USD</span>
+        <span class="pill pill-exp">5+ Years</span>
+        <span class="pill pill-salary">Pakistan OK</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>88%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:88%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular 2–21</span><span class="skill-tag skill-match">TypeScript</span><span class="skill-tag skill-match">RxJS</span><span class="skill-tag skill-match">REST APIs</span><span class="skill-tag skill-match">Enterprise Apps</span><span class="skill-tag skill-match">Team Lead</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">Timezone flexibility</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">Glassdoor-rated employer. Remote-first culture. Apply via Remotive.io or directly. Strong cultural fit for Pakistan-based developers. Probability of interview: <strong>High (82%)</strong></p>
+      </div>
+    </div>
+
+    <!-- JOB 3 -->
+    <div class="job-card">
+      <span class="tier-badge tier-1">TIER 1 — APPLY NOW</span>
+      <div class="job-header">
+        <div class="job-icon">🏥</div>
+        <div>
+          <div class="job-title">Frontend Engineer (Angular) — Healthcare</div>
+          <div class="job-company">Nao Medical — Remote (US Eastern Time)</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-remote">100% Remote</span>
+        <span class="pill pill-salary">$7,000–$9,000/yr USD</span>
+        <span class="pill pill-exp">3–5 Years</span>
+        <span class="pill pill-salary">ET Timezone Req.</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>85%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:85%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular</span><span class="skill-tag skill-match">TypeScript</span><span class="skill-tag skill-match">RxJS</span><span class="skill-tag skill-match">SCSS</span><span class="skill-tag skill-match">REST APIs</span><span class="skill-tag skill-match">Performance</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">Healthcare domain</span><span class="skill-tag skill-miss">ET timezone overlap</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">Salary is below market but this is a US healthcare company with strong growth. Timezone requirement (ET) is manageable with 4–6 hr evening shift from Pakistan. Apply via Indeed Pakistan. Probability of interview: <strong>High (75%)</strong></p>
+      </div>
+    </div>
+
+    <!-- JOB 4 -->
+    <div class="job-card">
+      <span class="tier-badge tier-1">TIER 1 — APPLY NOW</span>
+      <div class="job-header">
+        <div class="job-icon">📊</div>
+        <div>
+          <div class="job-title">Sr. Full Stack Engineer (Angular + Microservices)</div>
+          <div class="job-company">Prodege, LLC — Fully Remote (Arc.dev)</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-remote">100% Remote</span>
+        <span class="pill pill-salary">$65k–$85k/yr USD</span>
+        <span class="pill pill-exp">5+ Years</span>
+        <span class="pill pill-salary">Worldwide OK</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>79%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:79%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular</span><span class="skill-tag skill-match">Microservices</span><span class="skill-tag skill-match">TypeScript</span><span class="skill-tag skill-match">REST APIs</span><span class="skill-tag skill-match">Testing</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">Golang</span><span class="skill-tag skill-miss">DevOps experience</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">Arc.dev screens candidates rigorously. Build a strong Arc profile. Emphasise Microservices frontend architecture. Senior USD salary — excellent target. Probability of interview: <strong>Medium-High (68%)</strong></p>
+      </div>
+    </div>
+
+    <!-- JOB 5 -->
+    <div class="job-card">
+      <span class="tier-badge tier-2">TIER 2 — GOOD OPP</span>
+      <div class="job-header">
+        <div class="job-icon">🎓</div>
+        <div>
+          <div class="job-title">Angular Developer — Part-Time (Remote)</div>
+          <div class="job-company">BloomTech — Remote (Lahore Listed)</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-remote">100% Remote</span>
+        <span class="pill pill-salary">$30,000/yr USD</span>
+        <span class="pill pill-exp">3+ Years</span>
+        <span class="pill pill-salary">Pakistan OK</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>90%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:90%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular</span><span class="skill-tag skill-match">TypeScript</span><span class="skill-tag skill-match">RxJS</span><span class="skill-tag skill-match">REST APIs</span><span class="skill-tag skill-match">UI Dev</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">EdTech domain</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">Part-time role listed with Pakistan (Lahore) — confirms Pakistan candidates accepted. Strong ATS match. Salary is fair for part-time. Great for parallel income. Probability of interview: <strong>High (80%)</strong></p>
+      </div>
+    </div>
+
+    <!-- JOB 6 -->
+    <div class="job-card">
+      <span class="tier-badge tier-2">TIER 2 — GOOD OPP</span>
+      <div class="job-header">
+        <div class="job-icon">🏗️</div>
+        <div>
+          <div class="job-title">Technical Lead Developer (Angular + AWS + Python)</div>
+          <div class="job-company">Capstone Integrated Solutions — Remote (UK/EU/CA)</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-remote">100% Remote</span>
+        <span class="pill pill-salary">£65k–£85k equiv.</span>
+        <span class="pill pill-exp">7+ Years</span>
+        <span class="pill pill-salary">Multi-country listed</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>74%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-med" style="width:74%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular</span><span class="skill-tag skill-match">Tech Lead</span><span class="skill-tag skill-match">Architecture</span><span class="skill-tag skill-match">Frontend</span><span class="skill-tag skill-match">TypeScript</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">AWS expertise</span><span class="skill-tag skill-miss">Python (backend)</span><span class="skill-tag skill-miss">7yr exp required</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">Leadership-heavy role. Highlight your team lead and frontend architecture experience. AWS cloud basics would help. High salary potential. Applies via Indeed (UK Remote). Probability of interview: <strong>Medium (58%)</strong></p>
+      </div>
+    </div>
+
+    <!-- JOB 7 -->
+    <div class="job-card">
+      <span class="tier-badge tier-2">TIER 2 — GOOD OPP</span>
+      <div class="job-header">
+        <div class="job-icon">🏙️</div>
+        <div>
+          <div class="job-title">Senior Frontend Web Developer (Angular 17+)</div>
+          <div class="job-company">CAI — Remote (Contract, US-based)</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-remote">100% Remote Contract</span>
+        <span class="pill pill-salary">$50–75/hr USD</span>
+        <span class="pill pill-exp">7+ Years</span>
+        <span class="pill pill-salary">Bootstrap + Angular</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>88%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:88%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular 17+</span><span class="skill-tag skill-match">Bootstrap</span><span class="skill-tag skill-match">TypeScript</span><span class="skill-tag skill-match">APIs</span><span class="skill-tag skill-match">OOP</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">US contract eligibility</span><span class="skill-tag skill-miss">7yr exp</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">Apply via Glassdoor Remote. Strong Angular 17+ requirement matches your profile perfectly. Contract work — hourly rate is lucrative. May need US-based intermediary. Probability of interview: <strong>Medium-High (65%)</strong></p>
+      </div>
+    </div>
+
+    <!-- JOB 8 -->
+    <div class="job-card">
+      <span class="tier-badge tier-2">TIER 2 — GOOD OPP</span>
+      <div class="job-header">
+        <div class="job-icon">🏢</div>
+        <div>
+          <div class="job-title">Senior Software Engineer (Angular) — UAE Leading Bank</div>
+          <div class="job-company">UAE Banking Sector — Dubai (via Indeed AE)</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-onsite">On-site Dubai</span>
+        <span class="pill pill-salary">AED 14,000–20,000/mo</span>
+        <span class="pill pill-exp">5+ Years</span>
+        <span class="pill pill-salary">Visa Available</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>82%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-high" style="width:82%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular</span><span class="skill-tag skill-match">TypeScript</span><span class="skill-tag skill-match">RxJS</span><span class="skill-tag skill-match">REST APIs</span><span class="skill-tag skill-match">Enterprise</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">Banking domain</span><span class="skill-tag skill-miss">Relocation required</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">Requires relocation to Dubai — excellent long-term move. High salary + visa provided. Apply via Indeed UAE and Bayt.com. Emphasise enterprise-scale Angular projects. Probability of interview: <strong>Medium-High (70%)</strong></p>
+      </div>
+    </div>
+
+    <!-- JOB 9 -->
+    <div class="job-card">
+      <span class="tier-badge tier-3">TIER 3 — STRETCH</span>
+      <div class="job-header">
+        <div class="job-icon">⚡</div>
+        <div>
+          <div class="job-title">Full Stack Tech Lead (Angular + Node.js)</div>
+          <div class="job-company">Areti Group B Corp — Remote UK (Arc.dev)</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-remote">Remote UK</span>
+        <span class="pill pill-salary">Up to £85,000</span>
+        <span class="pill pill-exp">8+ Years</span>
+        <span class="pill pill-salary">UK Right-to-Work Pref.</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>67%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-med" style="width:67%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular</span><span class="skill-tag skill-match">Tech Lead</span><span class="skill-tag skill-match">Architecture</span><span class="skill-tag skill-match">TypeScript</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">Node.js backend</span><span class="skill-tag skill-miss">UK right-to-work</span><span class="skill-tag skill-miss">8yr exp</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">High salary but UK right-to-work is often required. Worth applying with a strong cover letter explaining remote-worldwide eligibility. Add Node.js basics to your portfolio. Probability of interview: <strong>Low-Medium (40%)</strong></p>
+      </div>
+    </div>
+
+    <!-- JOB 10 -->
+    <div class="job-card">
+      <span class="tier-badge tier-3">TIER 3 — STRETCH</span>
+      <div class="job-header">
+        <div class="job-icon">🔬</div>
+        <div>
+          <div class="job-title">Frontend Engineer — AI-Powered Web Apps</div>
+          <div class="job-company">Noble Cortex — Remote (Global)</div>
+        </div>
+      </div>
+      <div class="meta-pills">
+        <span class="pill pill-remote">100% Remote</span>
+        <span class="pill pill-salary">$70k–$95k/yr</span>
+        <span class="pill pill-exp">5+ Years</span>
+        <span class="pill pill-salary">Angular/React</span>
+      </div>
+      <div class="ats-bar-wrap">
+        <div class="ats-label"><span>ATS Match Score</span><span>72%</span></div>
+        <div class="ats-bar"><div class="ats-fill fill-med" style="width:72%"></div></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-box">
+          <h4>✅ Matching Skills</h4>
+          <span class="skill-tag skill-match">Angular</span><span class="skill-tag skill-match">TypeScript</span><span class="skill-tag skill-match">Dashboard dev</span><span class="skill-tag skill-match">D3.js</span><span class="skill-tag skill-match">APIs</span>
+        </div>
+        <div class="skills-box">
+          <h4>⚠️ Skill Gaps</h4>
+          <span class="skill-tag skill-miss">AI/ML integration</span><span class="skill-tag skill-miss">React fluency</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>Hiring Strategy</h3>
+        <p style="font-size:13px;color:var(--ink-light);line-height:1.7;">Emphasise your D3.js and data dashboard experience — critical for AI frontend roles. Add a portfolio project integrating a simple AI API with Angular. Apply via Wellfound. Probability of interview: <strong>Medium (52%)</strong></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ RANK TABLE ═══════════════════════════════════ -->
+<div id="ranktable" class="section">
+  <h1>Priority Rank Table</h1>
+  <p class="subtitle">All 10 roles ranked by ATS Match, hiring probability, and apply priority for a Pakistan-based Senior Angular Engineer.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Company</th>
+          <th>Role</th>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Salary</th>
+          <th>ATS %</th>
+          <th>Hiring Prob.</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank-cell">#1</td>
+          <td><strong>Smart Working Solutions</strong></td>
+          <td>Sr. Angular Developer</td>
+          <td><span class="pill pill-remote">Remote</span></td>
+          <td>Pakistan OK</td>
+          <td>USD Competitive</td>
+          <td><strong>88%</strong></td>
+          <td class="prob-high">82% HIGH</td>
+          <td><span class="priority-1">APPLY NOW</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell">#2</td>
+          <td><strong>BloomTech</strong></td>
+          <td>Angular Developer (PT)</td>
+          <td><span class="pill pill-remote">Remote</span></td>
+          <td>Lahore listed</td>
+          <td>$30k/yr USD</td>
+          <td><strong>90%</strong></td>
+          <td class="prob-high">80% HIGH</td>
+          <td><span class="priority-1">APPLY NOW</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell">#3</td>
+          <td><strong>Metamorf Group</strong></td>
+          <td>Sr. Angular Dev (Banking)</td>
+          <td><span class="pill pill-hybrid">Hybrid</span></td>
+          <td>Dubai, UAE</td>
+          <td>AED 12–16k/mo</td>
+          <td><strong>91%</strong></td>
+          <td class="prob-high">78% HIGH</td>
+          <td><span class="priority-1">APPLY NOW</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell">#4</td>
+          <td><strong>Nao Medical</strong></td>
+          <td>Frontend Engineer</td>
+          <td><span class="pill pill-remote">Remote</span></td>
+          <td>US (ET Time)</td>
+          <td>$7–9k/yr USD</td>
+          <td><strong>85%</strong></td>
+          <td class="prob-high">75% HIGH</td>
+          <td><span class="priority-1">APPLY NOW</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell">#5</td>
+          <td><strong>UAE Leading Bank</strong></td>
+          <td>Sr. Software Engineer</td>
+          <td><span class="pill pill-onsite">Onsite</span></td>
+          <td>Dubai (reloc.)</td>
+          <td>AED 14–20k/mo</td>
+          <td><strong>82%</strong></td>
+          <td class="prob-med">70% MED</td>
+          <td><span class="priority-2">APPLY SOON</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell">#6</td>
+          <td><strong>CAI</strong></td>
+          <td>Sr. Frontend Web Developer</td>
+          <td><span class="pill pill-remote">Remote</span></td>
+          <td>US (Contract)</td>
+          <td>$50–75/hr USD</td>
+          <td><strong>88%</strong></td>
+          <td class="prob-med">65% MED</td>
+          <td><span class="priority-2">APPLY SOON</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell">#7</td>
+          <td><strong>Prodege LLC</strong></td>
+          <td>Sr. Full Stack Engineer</td>
+          <td><span class="pill pill-remote">Remote</span></td>
+          <td>Worldwide</td>
+          <td>$65–85k/yr</td>
+          <td><strong>79%</strong></td>
+          <td class="prob-med">68% MED</td>
+          <td><span class="priority-2">APPLY SOON</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell">#8</td>
+          <td><strong>Capstone Integrated</strong></td>
+          <td>Tech Lead Developer</td>
+          <td><span class="pill pill-remote">Remote</span></td>
+          <td>UK/EU/CA</td>
+          <td>£65–85k equiv.</td>
+          <td><strong>74%</strong></td>
+          <td class="prob-med">58% MED</td>
+          <td><span class="priority-2">APPLY SOON</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell">#9</td>
+          <td><strong>Noble Cortex</strong></td>
+          <td>Frontend Engineer (AI)</td>
+          <td><span class="pill pill-remote">Remote</span></td>
+          <td>Global</td>
+          <td>$70–95k/yr</td>
+          <td><strong>72%</strong></td>
+          <td class="prob-low">52% MED</td>
+          <td><span class="priority-3">STRETCH</span></td>
+        </tr>
+        <tr>
+          <td class="rank-cell">#10</td>
+          <td><strong>Areti Group</strong></td>
+          <td>Full Stack Tech Lead</td>
+          <td><span class="pill pill-remote">Remote UK</span></td>
+          <td>UK (pref.)</td>
+          <td>Up to £85k</td>
+          <td><strong>67%</strong></td>
+          <td class="prob-low">40% LOW</td>
+          <td><span class="priority-3">STRETCH</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ INTERVIEW ═══════════════════════════════════ -->
+<div id="interview" class="section">
+  <h1>Interview Preparation</h1>
+  <p class="subtitle">HR, Technical, Angular-specific, and System Design questions with model answers tailored to your 5+ year profile.</p>
+
+  <h2>HR & Behavioural Questions</h2>
+  <div class="qa-card">
+    <div class="q">Tell me about your most complex Angular project.</div>
+    <div class="a">Describe an enterprise-scale app using Angular 15+, NgRx for state, RxJS for async data flows, and Angular Material/PrimeNG for UI. Quantify: "Reduced load time by 40% using lazy loading and SSR. Managed state for 30+ feature modules." Mention team size and your leadership role.</div>
+  </div>
+  <div class="qa-card">
+    <div class="q">How do you handle working across timezones remotely?</div>
+    <div class="a">Highlight asynchronous communication tools (Slack, Notion, Jira), your overlap hours with EU/US (PKT = UTC+5, so 2–6pm Pakistan covers EU afternoon), and your experience with documented handoffs and async PR reviews.</div>
+  </div>
+  <div class="qa-card">
+    <div class="q">Why are you looking for remote/international opportunities from Pakistan?</div>
+    <div class="a">Frame positively: "Pakistan has a rapidly growing tech talent pool. I've been building enterprise Angular applications for global clients and am ready to join an international team where I can contribute at the highest level and grow further."</div>
+  </div>
+
+  <h2>Angular Technical Questions</h2>
+  <div class="qa-card">
+    <div class="q">Explain Change Detection in Angular — Default vs OnPush.</div>
+    <div class="a">Default CD checks every component on any event. OnPush only checks when @Input references change, Observables emit (async pipe), or markForCheck() is called. For performance: use OnPush + Signals in Angular 16+. Always use trackBy in *ngFor. With Signals (Angular 17+), fine-grained reactivity eliminates most manual CD concerns.</div>
+  </div>
+  <div class="qa-card">
+    <div class="q">What are Angular Signals and how do they differ from RxJS?</div>
+    <div class="a">Signals are synchronous reactive primitives built into Angular core (v16+). They hold a value and notify dependents when it changes — like a computed() derived signal. RxJS is stream-based (async, time-based, multi-event). Signals are better for local UI state; RxJS excels at complex async data flows, HTTP, event streams. In Angular 17+, toSignal() bridges Observables to Signals.</div>
+  </div>
+  <div class="qa-card">
+    <div class="q">How would you architect an NgRx store for a large enterprise application?</div>
+    <div class="a">Use feature-level stores with createFeature(). Separate concerns: Actions (what happened), Reducers (pure state transitions), Effects (side effects/HTTP), Selectors (memoised derived state). Use Entity Adapter for list management. Implement strict typing. For very large apps, consider facade pattern to hide store complexity from components.</div>
+  </div>
+  <div class="qa-card">
+    <div class="q">Explain SSR with Angular Universal / Angular 17 SSR.</div>
+    <div class="a">Angular 17+ has native SSR built in (no separate Universal package). Server renders the initial HTML for fast FCP/SEO. Hydration (non-destructive in v17) reattaches event listeners without re-rendering DOM. Key considerations: avoid browser-only APIs (window/document) in shared code, use isPlatformBrowser(), handle TransferState for server-to-client data transfer, configure cache headers correctly.</div>
+  </div>
+
+  <h2>RxJS Questions</h2>
+  <div class="qa-card">
+    <div class="q">When would you use switchMap vs concatMap vs mergeMap vs exhaustMap?</div>
+    <div class="a">switchMap: cancels previous inner observable (search autocomplete). concatMap: queues, processes in order (sequential HTTP requests). mergeMap: all run in parallel (upload multiple files). exhaustMap: ignores new source until current completes (login button — prevents duplicate submissions). Most interview-critical: switchMap for search, exhaustMap for form submit.</div>
+  </div>
+
+  <h2>System Design Questions</h2>
+  <div class="qa-card">
+    <div class="q">Design a Micro Frontend architecture for an enterprise Angular application.</div>
+    <div class="a">Use Module Federation (Webpack 5) or Native Federation (Angular). Shell app loads remote modules at runtime. Each team owns an independent Angular app deployed separately. Share dependencies (Angular core) via shared scope. Communicate via CustomEvents or a shared EventBus service. Design: Shell → loads Header MFE, Dashboard MFE, Settings MFE. Lazy-loaded routes. Independent deployments. Separate NgRx stores per MFE or shared state via a root token.</div>
+  </div>
+  <div class="qa-card">
+    <div class="q">How do you implement a robust authentication system in Angular?</div>
+    <div class="a">JWT-based auth: store tokens in memory (not localStorage — XSS risk). Use HttpInterceptor to attach Bearer token to every request. Implement token refresh via silent refresh with a dedicated refresh Observable. Route Guards (canActivate) for protected routes. Auth facade service wrapping NgRx auth store. Handle 401 responses in interceptor by triggering refresh, then retrying original request using RxJS retryWhen or catchError with switchMap.</div>
+  </div>
+
+  <h2>Performance Questions</h2>
+  <div class="qa-card">
+    <div class="q">How would you optimise a slow Angular application?</div>
+    <div class="a">Audit with Chrome DevTools / Angular DevTools. Key strategies: (1) Lazy loading all routes, (2) OnPush change detection everywhere, (3) Pure pipes instead of component methods, (4) trackBy in ngFor, (5) Virtual scrolling (CDK) for large lists, (6) SSR for initial load, (7) Image optimisation with NgOptimizedImage, (8) Bundle analysis with webpack-bundle-analyzer, (9) Preloading strategies (PreloadAllModules or custom), (10) HTTP caching + request deduplication.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ 30-DAY PLAN ═══════════════════════════════════ -->
+<div id="plan" class="section">
+  <h1>30-Day Action Plan</h1>
+  <p class="subtitle">A structured daily job search strategy for maximum results. Target: 5–8 applications/day, 2 interviews by Day 21.</p>
+
+  <div class="plan-grid">
+    <div class="plan-week">
+      <div class="week-num">Week 1 — Days 1–7</div>
+      <h3>Foundation & Profile Optimisation</h3>
+      <div class="plan-item">Update LinkedIn headline: "Senior Angular Developer | Angular 2–21 | NgRx | SSR | RxJS | Open to Remote"</div>
+      <div class="plan-item">Add "Open to Work" badge (visible to recruiters only)</div>
+      <div class="plan-item">Polish GitHub: pin 3 Angular projects with READMEs, live demos, and CI/CD</div>
+      <div class="plan-item">Create profiles on Arc.dev, Turing.com, Toptal, Crossover</div>
+      <div class="plan-item">Register on Bayt.com with UAE preferences</div>
+      <div class="plan-item">Apply to Tier 1 jobs: Smart Working, BloomTech, Nao Medical (3 apps/day)</div>
+      <div class="plan-item">Set up job alerts on LinkedIn, Indeed, Arc.dev, Bayt.com</div>
+    </div>
+
+    <div class="plan-week">
+      <div class="week-num">Week 2 — Days 8–14</div>
+      <h3>Networking & Direct Outreach</h3>
+      <div class="plan-item">Connect with 10 Angular/Frontend recruiters on LinkedIn daily</div>
+      <div class="plan-item">Send 5 personalised recruiter messages (template provided below)</div>
+      <div class="plan-item">Apply to Metamorf Group (Dubai) and UAE Bank roles via Bayt.com</div>
+      <div class="plan-item">Join r/remotejs, r/cscareerquestions, Angularcon Slack, Angular Discord</div>
+      <div class="plan-item">Contribute a PR or article to Angular community (visibility boost)</div>
+      <div class="plan-item">Apply to Prodege (Arc.dev) and CAI (Glassdoor) — Tier 2</div>
+      <div class="plan-item">Post a technical Angular article on LinkedIn (Signals, SSR, etc.)</div>
+    </div>
+
+    <div class="plan-week">
+      <div class="week-num">Week 3 — Days 15–21</div>
+      <h3>Interview Preparation & Portfolio</h3>
+      <div class="plan-item">Build and deploy a portfolio site with Angular 17+ (SSR enabled)</div>
+      <div class="plan-item">Add a live NgRx + Signals demo project to GitHub</div>
+      <div class="plan-item">Practice system design: draw Micro Frontend and Auth System architectures</div>
+      <div class="plan-item">Do 3 mock Angular technical interviews (Pramp.com, Interviewing.io)</div>
+      <div class="plan-item">Apply to Stretch roles: Noble Cortex, Areti Group, Capstone</div>
+      <div class="plan-item">Follow up on Week 1 applications (polite check-in email)</div>
+      <div class="plan-item">Target: first interview call this week</div>
+    </div>
+
+    <div class="plan-week">
+      <div class="week-num">Week 4 — Days 22–30</div>
+      <h3>Close & Negotiate</h3>
+      <div class="plan-item">Continue 5 applications/day on new postings</div>
+      <div class="plan-item">Prepare for technical assessment rounds (LeetCode medium + Angular specifics)</div>
+      <div class="plan-item">Research salary benchmarks for each offer location</div>
+      <div class="plan-item">Negotiate: always counter-offer by 15–20% above initial offer</div>
+      <div class="plan-item">For UAE roles: negotiate annual flights, housing allowance, health insurance</div>
+      <div class="plan-item">Evaluate offers: salary + timezone fit + growth potential + culture</div>
+      <div class="plan-item">Sign offer and start onboarding prep</div>
+    </div>
+  </div>
+
+  <h2>Daily Minimum Targets</h2>
+  <div class="stats-row">
+    <div class="stat-card"><div class="num">5–8</div><div class="label">Applications per day</div></div>
+    <div class="stat-card"><div class="num">10</div><div class="label">LinkedIn connections/day</div></div>
+    <div class="stat-card"><div class="num">3</div><div class="label">Recruiter messages/day</div></div>
+    <div class="stat-card"><div class="num">1</div><div class="label">LinkedIn post/week</div></div>
+    <div class="stat-card"><div class="num">2</div><div class="label">Mock interviews/week</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ TEMPLATES ═══════════════════════════════════ -->
+<div id="templates" class="section">
+  <h1>Outreach Templates</h1>
+  <p class="subtitle">Copy-ready messages for recruiters, hiring managers, and follow-ups. Personalise the blue placeholders.</p>
+
+  <h2>LinkedIn Recruiter Outreach</h2>
+  <div class="template-box">Hi <span class="tvar">[Recruiter Name]</span>,
+
+I noticed you recruit for Angular / Frontend roles at <span class="tvar">[Company]</span>. I'm a Senior Angular Developer with 5+ years building enterprise-scale applications using Angular 2–21, NgRx, RxJS, Signals, and SSR.
+
+I'm currently open to remote or relocation opportunities and would love to learn if there are any relevant openings on your team.
+
+My GitHub: <span class="tvar">[github.com/yourhandle]</span>
+Portfolio: <span class="tvar">[yoursite.com]</span>
+
+Would love to connect! 🙌</div>
+
+  <h2>Cold Email — Hiring Manager (Unsolicited)</h2>
+  <div class="template-box">Subject: Senior Angular Developer — Interested in <span class="tvar">[Company Name]</span>
+
+Hi <span class="tvar">[Name]</span>,
+
+I've been following <span class="tvar">[Company]</span>'s work on <span class="tvar">[specific product/tech]</span> and I'm genuinely excited about what you're building.
+
+I'm a Senior Angular Developer with 5+ years of experience, specialising in:
+- Enterprise Angular (NgRx, RxJS, Signals, SSR)
+- Frontend architecture and performance optimisation
+- Cross-functional team leadership
+
+I noticed you're <span class="tvar">[actively expanding / just raised funding / building a new product]</span> and thought my skills could be a strong fit for your engineering team.
+
+Portfolio: <span class="tvar">[link]</span> | GitHub: <span class="tvar">[link]</span>
+
+Would you be open to a 15-minute call this week?
+
+Best,
+<span class="tvar">[Your Name]</span></div>
+
+  <h2>Follow-Up Message (7 Days After Applying)</h2>
+  <div class="template-box">Hi <span class="tvar">[Recruiter/HR Name]</span>,
+
+I applied for the <span class="tvar">[Role Title]</span> position at <span class="tvar">[Company]</span> on <span class="tvar">[Date]</span> and wanted to follow up to confirm receipt and reiterate my strong interest.
+
+My 5+ years of Angular enterprise experience and background in <span class="tvar">[specific skill from JD]</span> feel like a solid match for this role.
+
+Happy to provide any additional information. Looking forward to hearing from you!
+
+Best regards,
+<span class="tvar">[Your Name]</span></div>
+
+  <h2>Keywords to Include in Resume & LinkedIn</h2>
+  <div class="chip-row" style="margin-top:8px;">
+    <span class="chip">Senior Angular Developer</span>
+    <span class="chip">Angular 17</span>
+    <span class="chip">Angular 18</span>
+    <span class="chip">NgRx</span>
+    <span class="chip">RxJS</span>
+    <span class="chip">Angular Signals</span>
+    <span class="chip">SSR</span>
+    <span class="chip">Angular Universal</span>
+    <span class="chip">Hydration</span>
+    <span class="chip">PrimeNG</span>
+    <span class="chip">Angular Material</span>
+    <span class="chip">TypeScript</span>
+    <span class="chip">Micro Frontend</span>
+    <span class="chip">Module Federation</span>
+    <span class="chip">Enterprise Angular</span>
+    <span class="chip">Frontend Architecture</span>
+    <span class="chip">Component Library</span>
+    <span class="chip">SCSS</span>
+    <span class="chip">Lazy Loading</span>
+    <span class="chip">Change Detection</span>
+    <span class="chip">OnPush Strategy</span>
+    <span class="chip">REST API Integration</span>
+    <span class="chip">JWT Authentication</span>
+    <span class="chip">D3.js</span>
+    <span class="chip">Google Maps API</span>
+    <span class="chip">Team Lead</span>
+    <span class="chip">Code Review</span>
+    <span class="chip">CI/CD</span>
+    <span class="chip">Agile / Scrum</span>
+    <span class="chip">Remote-first</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ HIDDEN OPPS ═══════════════════════════════════ -->
+<div id="hidden" class="section">
+  <h1>Hidden Opportunities</h1>
+  <p class="subtitle">Companies actively building Angular products but not heavily advertising — your best chance to get in before competition peaks.</p>
+
+  <div class="hidden-grid">
+    <div class="hidden-card">
+      <div class="tag">// FINTECH — UAE/SA</div>
+      <h3>Digital Banking Platforms in Saudi Arabia</h3>
+      <p>Saudi Vision 2030 has triggered massive fintech investment. Companies like STC Pay, Riyad Bank Digital, and stc Digital are hiring frontend engineers. Angular is dominant in enterprise banking. Approach via LinkedIn Sales Navigator targeting "Frontend Lead" in Riyadh/Jeddah + reach out cold.</p>
+    </div>
+    <div class="hidden-card">
+      <div class="tag">// HEALTHTECH — US/EU REMOTE</div>
+      <h3>EHR & Healthcare SaaS Startups (Wellfound)</h3>
+      <p>Healthcare SaaS companies (Ceresti Health, Nao Medical type) building patient dashboards and data platforms are Angular-heavy. These firms rarely advertise on job boards — they use Wellfound/AngelList directly. Filter by "Series A/B, Remote, Frontend" on Wellfound.</p>
+    </div>
+    <div class="hidden-card">
+      <div class="tag">// LOGISTICS TECH — GLOBAL</div>
+      <h3>Supply Chain & AI Logistics Platforms</h3>
+      <p>Companies like Resilinc (actively hiring Senior UI Angular 13+) build agentic AI supply chain tools with Angular dashboards. These appear in niche job alerts but rarely on front pages. Monitor Resilinc, project44, FourKites on LinkedIn. Strong match for your REST + enterprise experience.</p>
+    </div>
+    <div class="hidden-card">
+      <div class="tag">// EDTECH — WORLDWIDE REMOTE</div>
+      <h3>Online Learning Platforms (Remote-First)</h3>
+      <p>EdTech companies (JPLC, Bloom-type) use Angular for LMS dashboards and student portals. They actively hire from Pakistan and offer USD salaries. Not well-advertised — monitor r/remotejs, WorkingNomads, and Remotive weekly digests. Post on LinkedIn that you're open: recruiters from EdTech reach out.</p>
+    </div>
+    <div class="hidden-card">
+      <div class="tag">// GOVTECH — UK / EUROPE</div>
+      <h3>UK Public Sector Digital Transformation</h3>
+      <p>UK Government Digital Service and NHS Digital projects consistently hire Angular developers on contract via Lorien, Capita, and Cognizant. These roles are on ITJobsWatch and CWJobs. Many are Inside IR35 remote contracts — UK right-to-work not always required for umbrella arrangements. High hourly rates (£400–550/day).</p>
+    </div>
+    <div class="hidden-card">
+      <div class="tag">// ENTERPRISE SaaS — GERMANY/NL</div>
+      <h3>German & Dutch B2B SaaS Companies</h3>
+      <p>Germany (SAP ecosystem, Personio, commercetools) and Netherlands (Exact, AFAS) use Angular heavily for enterprise dashboards. These firms hire remotely worldwide but rarely use English job boards. Target them via LinkedIn directly, search "Angular Entwickler" + "Remote weltweit" or reach out to their GitHub contributors.</p>
+    </div>
+  </div>
+
+  <h2>Hidden Opportunity Strategy</h2>
+  <div class="job-card">
+    <h3>How to Unlock Unadvertised Jobs</h3>
+    <p style="font-size:13px;color:var(--ink-light);line-height:1.8;margin-top:8px;">
+      <strong>1. GitHub Mining:</strong> Search GitHub for Angular repos with recent commits → find the company → find their LinkedIn → message the CTO/Lead directly.<br><br>
+      <strong>2. LinkedIn Posts:</strong> Post "I'm open to Senior Angular roles" with your stack. Use hashtags: #AngularDeveloper #OpenToWork #RemoteAngular. Recruiters search these daily.<br><br>
+      <strong>3. Tech Stack Reverse Search:</strong> On LinkedIn, filter "People" by company → "Software Engineer" → check their LinkedIn if they're Angular devs → the company is likely hiring similar roles.<br><br>
+      <strong>4. Angel List / Wellfound "Actively Hiring" Filter:</strong> Filter by "Angular, Series A–C, Remote" to find funded startups hiring NOW before they post publicly.<br><br>
+      <strong>5. Cold Portfolio Email:</strong> Send your portfolio to 10 CTOs/VPs of Engineering per week at companies using Angular (visible on their website's tech stack). Even a 5% reply rate = 2 conversations/week.
+    </p>
+  </div>
+</div>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Accordion
+  document.querySelectorAll('.accordion-header').forEach(h => {
+    h.addEventListener('click', () => {
+      h.classList.toggle('open');
+      h.nextElementSibling.classList.toggle('open');
+    });
+  });
+
+  // Animate ATS bars on tab switch
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.ats-fill').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = w; }, 50);
+        });
+      }, 50);
+    });
+  });
+</script>
+</body>
+</html>
