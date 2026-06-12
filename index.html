@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Maaz Ali — Personalised Outreach Templates 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,700;1,300&display=swap');
+
+  :root {
+    --ink: #0d1117;
+    --ink-2: #3a3f52;
+    --paper: #f7f6f3;
+    --white: #ffffff;
+    --blue: #2563eb;
+    --blue-soft: #dbeafe;
+    --green: #059669;
+    --green-soft: #d1fae5;
+    --purple: #7c3aed;
+    --purple-soft: #ede9fe;
+    --gold: #b45309;
+    --gold-soft: #fef3c7;
+    --red-soft: #fee2e2;
+    --red: #dc2626;
+    --border: #e5e3dc;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  /* ─── TOP HEADER ─── */
+  .top-bar {
+    background: var(--ink);
+    padding: 20px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .top-bar .identity { color: #fff; }
+  .top-bar .identity .name {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .top-bar .identity .role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #60a5fa;
+    letter-spacing: .06em;
+    margin-top: 2px;
+  }
+  .top-bar .contact-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .contact-chip {
+    background: #1e293b;
+    color: #a0aec0;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    border: 1px solid #334155;
+  }
+  .contact-chip span { color: #93c5fd; }
+
+  /* ─── NAV ─── */
+  nav {
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    padding: 0 36px;
+    display: flex;
+    gap: 2px;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-btn {
+    padding: 14px 18px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--ink-2);
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all .15s;
+  }
+  .nav-btn:hover { color: var(--blue); }
+  .nav-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+  /* ─── SECTIONS ─── */
+  .page { display: none; max-width: 960px; margin: 0 auto; padding: 40px 36px 60px; }
+  .page.active { display: block; }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--blue);
+    margin: 36px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h2::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .subtitle { color: var(--ink-2); font-size: 14px; margin-bottom: 28px; max-width: 680px; }
+
+  /* ─── CONTACT CARD ─── */
+  .contact-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+  }
+  .contact-card.tier1::before { background: var(--green); }
+  .contact-card.tier2::before { background: var(--blue); }
+  .contact-card.tier3::before { background: var(--gold); }
+
+  .contact-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+  .contact-avatar {
+    width: 46px; height: 46px;
+    border-radius: 10px;
+    background: var(--blue-soft);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .contact-name { font-weight: 700; font-size: 16px; }
+  .contact-title { font-size: 12.5px; color: var(--blue); font-weight: 600; }
+  .contact-company { font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+
+  .contact-details { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .detail-pill {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--paper);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .detail-pill .icon { font-size: 11px; }
+  .detail-pill.verified { background: var(--green-soft); border-color: #6ee7b7; color: #065f46; }
+  .detail-pill.probable { background: var(--blue-soft); border-color: #93c5fd; color: #1e40af; }
+  .detail-pill.unverified { background: var(--gold-soft); border-color: #fcd34d; color: var(--gold); }
+
+  .contact-note {
+    font-size: 12.5px;
+    color: var(--ink-2);
+    background: var(--paper);
+    border-radius: 8px;
+    padding: 10px 14px;
+    line-height: 1.6;
+  }
+
+  /* ─── TEMPLATE BOX ─── */
+  .template-wrap { margin-bottom: 28px; }
+  .template-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-2);
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .template-label .badge {
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+  .badge-linkedin { background: #dbeafe; color: #1e40af; }
+  .badge-email { background: #d1fae5; color: #065f46; }
+  .badge-followup { background: #ede9fe; color: #4c1d95; }
+
+  .template-box {
+    background: var(--ink);
+    color: #e2e8f0;
+    border-radius: 12px;
+    padding: 24px 28px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+  }
+  .template-box .subj {
+    color: #94a3b8;
+    font-size: 11px;
+    display: block;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1e293b;
+    font-style: italic;
+  }
+  .template-box .hi { color: #60a5fa; font-weight: 700; }
+  .template-box .metric { color: #34d399; font-weight: 600; }
+  .template-box .proj { color: #f9a8d4; font-weight: 600; }
+  .template-box .role { color: #fbbf24; }
+  .template-box .sig { color: #a5f3fc; }
+  .copy-btn {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: #1e293b;
+    color: #94a3b8;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    transition: all .15s;
+  }
+  .copy-btn:hover { background: #2563eb; color: #fff; border-color: #2563eb; }
+  .copy-btn.copied { background: #059669; color: #fff; border-color: #059669; }
+
+  /* ─── STRATEGY BOX ─── */
+  .strategy-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-top: 14px;
+  }
+  .strategy-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
+  .strategy-row { display: flex; gap: 8px; margin-bottom: 6px; font-size: 13px; align-items: flex-start; }
+  .strategy-row .arrow { color: var(--blue); font-family: monospace; flex-shrink: 0; margin-top: 1px; }
+
+  /* ─── KEYWORD CLOUD ─── */
+  .kw-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
+  .kw {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--ink);
+    transition: all .15s;
+    cursor: default;
+  }
+  .kw:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .kw.kw-primary { background: var(--blue-soft); border-color: #93c5fd; color: #1e40af; font-weight: 600; }
+  .kw.kw-green { background: var(--green-soft); border-color: #6ee7b7; color: #065f46; }
+
+  /* ─── STATS ROW ─── */
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 30px; }
+  .stat {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .stat .n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+  .stat .l { font-size: 11px; color: var(--ink-2); margin-top: 3px; }
+
+  /* ─── HIGHLIGHT BLOCK ─── */
+  .highlight-block {
+    border-left: 3px solid var(--blue);
+    background: var(--blue-soft);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: #1e3a8a;
+    margin: 14px 0;
+    line-height: 1.7;
+  }
+
+  /* ─── SECTION DIVIDER ─── */
+  .company-block { margin-bottom: 48px; }
+  .company-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 20px;
+    padding: 16px 22px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .company-icon { font-size: 28px; }
+  .company-name { font-weight: 700; font-size: 18px; }
+  .company-meta { font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+  .company-meta span { color: var(--blue); font-weight: 600; }
+
+  @media (max-width: 640px) {
+    .page { padding: 24px 16px; }
+    nav { padding: 0 16px; }
+    .top-bar { padding: 16px; }
+    .template-box { padding: 18px; font-size: 11.5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP IDENTITY BAR -->
+<div class="top-bar">
+  <div class="identity">
+    <div class="name">Muhammad Maaz Ali</div>
+    <div class="role">// SENIOR ANGULAR DEVELOPER & FRONTEND TEAM LEAD · ISLAMABAD, PAKISTAN</div>
+  </div>
+  <div class="contact-chips">
+    <div class="contact-chip">📧 <span>developermaazz@gmail.com</span></div>
+    <div class="contact-chip">📱 <span>(+92) 343-0506210</span></div>
+    <div class="contact-chip">🔗 <span>linkedin.com/in/developer-maaz</span></div>
+    <div class="contact-chip">📍 <span>Islamabad, Pakistan</span></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <button class="nav-btn active" onclick="show('contacts')">HR Contacts</button>
+  <button class="nav-btn" onclick="show('linkedin')">LinkedIn Messages</button>
+  <button class="nav-btn" onclick="show('email')">Cold Emails</button>
+  <button class="nav-btn" onclick="show('followup')">Follow-Ups</button>
+  <button class="nav-btn" onclick="show('keywords')">ATS Keywords</button>
+</nav>
+
+
+<!-- ══════════════════════ HR CONTACTS ══════════════════════ -->
+<div id="contacts" class="page active">
+  <h1>HR Contacts Found</h1>
+  <p class="subtitle">Real recruiter & hiring manager contacts researched for your target companies, with confidence levels and direct outreach guidance.</p>
+
+  <div class="stats-row">
+    <div class="stat"><div class="n">3</div><div class="l">Verified contacts found</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">Probable emails mapped</div></div>
+    <div class="stat"><div class="n">10</div><div class="l">Companies researched</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">Direct application portals</div></div>
+  </div>
+
+  <!-- SMART WORKING SOLUTIONS -->
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🌐</div>
+      <div>
+        <div class="company-name">Smart Working Solutions</div>
+        <div class="company-meta">London, UK · Remote Provider · <span>Pakistan-friendly · Glassdoor top-rated</span> · smartworking-solutions.com</div>
+      </div>
+    </div>
+
+    <div class="contact-card tier1">
+      <div class="contact-header">
+        <div class="contact-avatar">👩‍💼</div>
+        <div>
+          <div class="contact-name">Anushka Tyagi</div>
+          <div class="contact-title">Recruiter @ Smart Working</div>
+          <div class="contact-company">Smart Working Solutions — actively posts Angular/Frontend hiring alerts</div>
+        </div>
+      </div>
+      <div class="contact-details">
+        <span class="detail-pill verified"><span class="icon">✅</span> LinkedIn: linkedin.com/in/anushka-tyagi-66b656172</span>
+        <span class="detail-pill probable"><span class="icon">📧</span> anushka.tyagi@smartworking-solutions.com (probable)</span>
+        <span class="detail-pill verified"><span class="icon">🔗</span> Apply portal: jobs.lever.co/smart-working-solutions</span>
+      </div>
+      <div class="contact-note">
+        ⚡ <strong>Best approach:</strong> Connect on LinkedIn first with a personalised note referencing the Senior Angular Developer role. Anushka directly posts "We Are Hiring: Senior Frontend Engineer" alerts on LinkedIn. She is the active recruiter for technical roles. Also apply via their Lever portal (jobs.lever.co/smart-working-solutions) which is the primary ATS they use. Email format is firstname.lastname@smartworking-solutions.com based on company pattern.
+      </div>
+    </div>
+
+    <div class="contact-card tier1">
+      <div class="contact-header">
+        <div class="contact-avatar">🏢</div>
+        <div>
+          <div class="contact-name">Smart Working Solutions — General Hiring</div>
+          <div class="contact-title">Direct Application Portal (Lever ATS)</div>
+          <div class="contact-company">jobs.lever.co/smart-working-solutions — Pakistan / Islamabad / Lahore / Karachi</div>
+        </div>
+      </div>
+      <div class="contact-details">
+        <span class="detail-pill verified"><span class="icon">✅</span> Portal: jobs.lever.co/smart-working-solutions</span>
+        <span class="detail-pill verified"><span class="icon">📍</span> Lists Pakistan cities explicitly</span>
+        <span class="detail-pill probable"><span class="icon">🤖</span> Uses AI resume screening</span>
+      </div>
+      <div class="contact-note">
+        📌 <strong>Note:</strong> Smart Working uses AI tools to review applications (stated in job listings). Ensure your resume has Angular, NgRx, RxJS, TypeScript, SSR, RBAC keywords front-loaded in your summary. Apply via portal AND message Anushka on LinkedIn simultaneously for maximum visibility.
+      </div>
+    </div>
+  </div>
+
+  <!-- METAMORF GROUP -->
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🏦</div>
+      <div>
+        <div class="company-name">Metamorf Group (METAMORFS)</div>
+        <div class="company-meta">Dubai, UAE · IT Consulting / Banking · <span>Actively hiring Angular + React engineers</span> · metamorfs.com</div>
+      </div>
+    </div>
+
+    <div class="contact-card tier1">
+      <div class="contact-header">
+        <div class="contact-avatar">👨‍💼</div>
+        <div>
+          <div class="contact-name">Steve (BD Director)</div>
+          <div class="contact-title">Business Development — UAE Hiring Authority</div>
+          <div class="contact-company">METAMORFS — Dubai, UAE · Directly stated "use this email to reach out"</div>
+        </div>
+      </div>
+      <div class="contact-details">
+        <span class="detail-pill verified"><span class="icon">✅</span> Email: steve@metamorfs.com (publicly posted on LinkedIn)</span>
+        <span class="detail-pill verified"><span class="icon">🌐</span> metamorfs.com/job-list</span>
+        <span class="detail-pill verified"><span class="icon">📍</span> P.O. Box 487177, Dubai UAE</span>
+      </div>
+      <div class="contact-note">
+        ⚡ <strong>Best approach:</strong> Email steve@metamorfs.com directly — this email was publicly posted by them on LinkedIn with the instruction "Direct applications and trusted recommendations are highly appreciated." Send a concise, confident cold email. Apply to their job-list page (metamorfs.com/job-list) simultaneously. They are actively hiring for Angular + React (banking domain) — your LMS + financial platform experience at Hiveworx & Genesis is a strong match.
+      </div>
+    </div>
+
+    <div class="contact-card tier1">
+      <div class="contact-header">
+        <div class="contact-avatar">🔍</div>
+        <div>
+          <div class="contact-name">Technical Recruiter (Open Role)</div>
+          <div class="contact-title">METAMORFS — Bengaluru (Technical Recruitment)</div>
+          <div class="contact-company">METAMORFS hires a Technical Recruiter for their India team — meaning recruitment is active</div>
+        </div>
+      </div>
+      <div class="contact-details">
+        <span class="detail-pill probable"><span class="icon">📧</span> hr@metamorfs.com (probable — standard HR format)</span>
+        <span class="detail-pill probable"><span class="icon">📧</span> careers@metamorfs.com (probable)</span>
+        <span class="detail-pill verified"><span class="icon">🌐</span> metamorfs.com</span>
+      </div>
+      <div class="contact-note">
+        📌 <strong>Note:</strong> Email both steve@metamorfs.com (confirmed) and hr@metamorfs.com (probable) simultaneously. They are actively running multiple hiring campaigns across Dubai, Saudi Arabia, and Qatar. Your banking LMS + financial platform (Prospect Leap hire-purchase system) experience is a direct fit for their "Angular + React Software Engineer from banking domain" role.
+      </div>
+    </div>
+  </div>
+
+  <!-- HIVEWORX (current employer — networking referrals) -->
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🏗️</div>
+      <div>
+        <div class="company-name">Hiveworx (Current Employer — Network Leverage)</div>
+        <div class="company-meta">Islamabad, Pakistan · Global presence: UAE, KSA, Ireland, Canada · <span>Use for internal referrals to international offices</span></div>
+      </div>
+    </div>
+
+    <div class="contact-card tier2">
+      <div class="contact-header">
+        <div class="contact-avatar">💡</div>
+        <div>
+          <div class="contact-name">Internal Referral Strategy</div>
+          <div class="contact-title">Leverage Hiveworx's UAE & KSA presence</div>
+          <div class="contact-company">Hiveworx has offices in UAE and Saudi Arabia — request internal transfer/referrals</div>
+        </div>
+      </div>
+      <div class="contact-details">
+        <span class="detail-pill verified"><span class="icon">🌍</span> UAE & KSA offices confirmed</span>
+        <span class="detail-pill verified"><span class="icon">🌐</span> hive-worx.com/contact</span>
+        <span class="detail-pill probable"><span class="icon">📧</span> info@hive-worx.com (general contact)</span>
+      </div>
+      <div class="contact-note">
+        💡 <strong>Strategy:</strong> Before leaving Hiveworx, ask your manager or leadership about opportunities within their UAE/KSA offices. Your Prospect Leap work is known internally — this is the easiest path to a Middle East role without cold applying. Even a positive LinkedIn recommendation from your team lead at Hiveworx dramatically increases conversion rates elsewhere.
+      </div>
+    </div>
+  </div>
+
+  <!-- OTHER COMPANIES -->
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🌍</div>
+      <div>
+        <div class="company-name">Other Target Companies — Contact Strategy</div>
+        <div class="company-meta">Arc.dev, BloomTech, Nao Medical, CAI, Noble Cortex</div>
+      </div>
+    </div>
+
+    <div class="contact-card tier2">
+      <div class="contact-header">
+        <div class="contact-avatar">🎯</div>
+        <div>
+          <div class="contact-name">Arc.dev — Talent Team</div>
+          <div class="contact-title">Platform Application (No Cold Email Needed)</div>
+          <div class="contact-company">Arc.dev — talent@arc.dev | arc.dev/remote-jobs/angular</div>
+        </div>
+      </div>
+      <div class="contact-details">
+        <span class="detail-pill verified"><span class="icon">✅</span> talent@arc.dev</span>
+        <span class="detail-pill verified"><span class="icon">🌐</span> arc.dev/talent (profile setup)</span>
+        <span class="detail-pill verified"><span class="icon">📋</span> Platform vets then matches to companies</span>
+      </div>
+      <div class="contact-note">
+        Apply via Arc.dev talent profile — they match you to Prodege LLC (Sr. Full Stack, Angular + Microservices), CAI, and similar high-paying US roles. Once your profile is live, you get inbound interest. Email talent@arc.dev if you need expedited review for a specific listing.
+      </div>
+    </div>
+
+    <div class="contact-card tier2">
+      <div class="contact-header">
+        <div class="contact-avatar">🏥</div>
+        <div>
+          <div class="contact-name">Nao Medical — HR / Talent</div>
+          <div class="contact-title">Frontend Engineer Role (Pakistan remote, ET hours)</div>
+          <div class="contact-company">Nao Medical · NYC-based healthcare · apply via Indeed Pakistan</div>
+        </div>
+      </div>
+      <div class="contact-details">
+        <span class="detail-pill probable"><span class="icon">📧</span> careers@naomedical.com (probable)</span>
+        <span class="detail-pill verified"><span class="icon">🌐</span> Apply: pk.indeed.com (search "Nao Medical Frontend")</span>
+        <span class="detail-pill unverified"><span class="icon">⚠️</span> ET timezone overlap required</span>
+      </div>
+      <div class="contact-note">
+        Apply via Indeed Pakistan. Role is $7–9k/yr USD — undermarket but foot in the door at a US healthcare company. Your Hospital Management System (Synapse Consulting) directly aligns with their healthcare domain. Mention HIPAA-adjacent experience from your HMS project in the cover letter.
+      </div>
+    </div>
+
+    <div class="contact-card tier3">
+      <div class="contact-header">
+        <div class="contact-avatar">🏙️</div>
+        <div>
+          <div class="contact-name">UAE Banking / Talabat / Emirates Group</div>
+          <div class="contact-title">Frontend Engineer Roles — Bayt.com + LinkedIn UAE</div>
+          <div class="contact-company">Multiple UAE banking & tech companies hiring Angular devs</div>
+        </div>
+      </div>
+      <div class="contact-details">
+        <span class="detail-pill verified"><span class="icon">🌐</span> bayt.com (best UAE job board)</span>
+        <span class="detail-pill verified"><span class="icon">🌐</span> naukrigulf.com</span>
+        <span class="detail-pill verified"><span class="icon">🌐</span> linkedin.com/jobs (UAE)</span>
+      </div>
+      <div class="contact-note">
+        For UAE banking roles (talabat, Emirates, UAE leading bank): apply via Bayt.com with UAE-optimised resume. Ensure you state "Available for relocation to UAE — visa sponsorship welcome" in your summary. AED 10–20k/mo salary range with visa is very achievable with your 5yr profile.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════ LINKEDIN MESSAGES ══════════════════════ -->
+<div id="linkedin" class="page">
+  <h1>LinkedIn Outreach Messages</h1>
+  <p class="subtitle">Personalised LinkedIn connection requests and InMail messages — written in Maaz's voice, using his real projects and metrics.</p>
+
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🌐</div>
+      <div>
+        <div class="company-name">Smart Working Solutions → Anushka Tyagi (Recruiter)</div>
+        <div class="company-meta">LinkedIn: linkedin.com/in/anushka-tyagi-66b656172 · <span>Connect + Message</span></div>
+      </div>
+    </div>
+
+    <div class="template-wrap">
+      <div class="template-label">Connection Request Note (300 chars max) <span class="badge badge-linkedin">LinkedIn Connect</span></div>
+      <div class="template-box" id="li1">
+<button class="copy-btn" onclick="copyTemplate('li1', this)">Copy</button>Hi Anushka — I noticed you recruit Senior Angular & Frontend roles at Smart Working. I'm a Senior Angular Developer & Team Lead (5+ yrs, Angular 2–17+, NgRx, SSR) based in Islamabad, open to remote opportunities. Would love to connect!</div>
+    </div>
+
+    <div class="template-wrap">
+      <div class="template-label">Follow-Up Message (After Connection Accepted) <span class="badge badge-linkedin">LinkedIn DM</span></div>
+      <div class="template-box" id="li2">
+<button class="copy-btn" onclick="copyTemplate('li2', this)">Copy</button><span class="hi">Hi Anushka,</span>
+
+Thanks for connecting! I wanted to reach out regarding Senior Angular Developer opportunities at Smart Working Solutions.
+
+A quick snapshot of my background:
+
+→ <span class="metric">5+ years</span> building enterprise Angular applications for <span class="proj">financial, healthcare & education</span> clients
+→ Currently Frontend Team Lead at <span class="proj">Hiveworx</span>, architecting the <span class="proj">Prospect Leap</span> hire-purchase platform (Angular, NgRx, REST APIs)
+→ Previous experience: <span class="proj">Hospital Management System</span> (US healthcare client) and <span class="proj">LMS platform</span> (Saudi enterprise client)
+→ Tech stack: Angular 2–17+, NgRx, RxJS, Signals, SSR, Angular Material, PrimeNG, TypeScript
+→ Reduced bundle size by <span class="metric">~40%</span> via lazy loading at Hiveworx; improved list rendering <span class="metric">~50%</span> at Genesis
+
+I saw your recent post about hiring Senior Frontend Engineers and believe I'm a strong match. I'm based in Islamabad and open to fully remote roles.
+
+Would you be open to a quick call or could you share any relevant openings on your end?
+
+<span class="sig">Best regards,
+Muhammad Maaz Ali
+developermaazz@gmail.com | (+92) 343-0506210
+linkedin.com/in/developer-maaz</span></div>
+    </div>
+  </div>
+
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🏦</div>
+      <div>
+        <div class="company-name">Metamorf Group → Technical Recruiter / Hiring Manager</div>
+        <div class="company-meta">Search: "Metamorf Group recruiter" on LinkedIn · <span>Also use steve@metamorfs.com (email section)</span></div>
+      </div>
+    </div>
+
+    <div class="template-wrap">
+      <div class="template-label">LinkedIn DM — Metamorf Recruiter <span class="badge badge-linkedin">LinkedIn DM</span></div>
+      <div class="template-box" id="li3">
+<button class="copy-btn" onclick="copyTemplate('li3', this)">Copy</button><span class="hi">Hi [Recruiter Name],</span>
+
+I came across Metamorf Group's opening for an Angular + React Software Engineer (banking domain) in Dubai and wanted to reach out directly.
+
+My background aligns closely with what you're looking for:
+
+→ <span class="metric">5+ years</span> Angular development, <span class="metric">Angular 2–17+</span>, TypeScript, RxJS, NgRx
+→ Delivered <span class="proj">Prospect Leap</span> — an enterprise <span class="role">hire-purchase & financial contract management platform</span> with complex multi-step workflows and real-time validation (direct banking-domain relevance)
+→ Built <span class="proj">LMS & CMS platforms</span> for Saudi enterprise clients with role-based access for 1,000+ users
+→ Frontend Team Lead at Hiveworx — driving architecture, code reviews, and sprint delivery
+
+I'm currently based in Islamabad and open to relocation to Dubai with visa sponsorship support.
+
+Would love to discuss whether I'm a fit for your current or upcoming openings.
+
+<span class="sig">Muhammad Maaz Ali
+developermaazz@gmail.com | (+92) 343-0506210</span></div>
+    </div>
+  </div>
+
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🌍</div>
+      <div>
+        <div class="company-name">General Tech Recruiter — UAE / UK / EU Remote</div>
+        <div class="company-meta">Use for any recruiter hiring Angular devs for international roles</div>
+      </div>
+    </div>
+
+    <div class="template-wrap">
+      <div class="template-label">Universal Recruiter Outreach <span class="badge badge-linkedin">LinkedIn DM</span></div>
+      <div class="template-box" id="li4">
+<button class="copy-btn" onclick="copyTemplate('li4', this)">Copy</button><span class="hi">Hi [Name],</span>
+
+I noticed you recruit for Angular / Frontend engineering roles — I'd love to be on your radar for any Senior Angular opportunities.
+
+Quick profile:
+→ <span class="metric">5+ years</span> | Angular 2–17+, TypeScript, NgRx, RxJS, SSR
+→ Currently: <span class="role">Frontend Team Lead</span> at Hiveworx (Islamabad) — leading architecture & sprint delivery for an enterprise financial platform
+→ Previous: Enterprise <span class="proj">Hospital Management System</span> (US healthcare), <span class="proj">LMS/CMS</span> (Saudi Arabia, 1k+ users)
+→ Achieved <span class="metric">~40% bundle reduction</span>, <span class="metric">~50% rendering improvement</span> on production apps
+→ Open to: Remote (worldwide) or UAE/UK relocation
+
+Happy to share my CV or portfolio — would love to connect!
+
+<span class="sig">Muhammad Maaz Ali · developermaazz@gmail.com</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════ COLD EMAILS ══════════════════════ -->
+<div id="email" class="page">
+  <h1>Cold Emails</h1>
+  <p class="subtitle">Direct cold emails to HR and hiring managers — using Maaz's real achievements, project names, and metrics for maximum credibility.</p>
+
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🏦</div>
+      <div>
+        <div class="company-name">METAMORFS / Metamorf Group → steve@metamorfs.com</div>
+        <div class="company-meta">Dubai, UAE · <span>Confirmed email — use this directly</span> · Angular + React Banking Engineer</div>
+      </div>
+    </div>
+
+    <div class="template-wrap">
+      <div class="template-label">Direct Email to Steve (BD Director, Dubai) <span class="badge badge-email">Cold Email</span></div>
+      <div class="template-box" id="em1">
+<button class="copy-btn" onclick="copyTemplate('em1', this)">Copy</button><span class="subj">Subject: Senior Angular Developer (Banking Domain) — Available for Dubai Role</span>
+<span class="hi">Dear Steve,</span>
+
+I came across your LinkedIn post where you invited direct applications to steve@metamorfs.com, so I'm reaching out about the Angular + React Software Engineer role (banking domain) at Metamorf Group.
+
+I believe I'm a strong match:
+
+<span class="role">Relevant Experience:</span>
+→ Currently <span class="role">Frontend Team Lead</span> at <span class="proj">Hiveworx</span>, Islamabad — leading Angular architecture for <span class="proj">Prospect Leap</span>, an enterprise hire-purchase & financial contract management platform. This is directly in line with your banking domain requirement.
+→ Architected NgRx state management for complex financial workflows; designed a dynamic form engine supporting <span class="metric">10+ conditional business rule flows</span> across contract lifecycle stages.
+→ <span class="metric">5+ years</span> Angular (v2–v17+), TypeScript, RxJS, NgRx — with Angular at ~70% and growing React exposure.
+→ Previously built enterprise LMS/CMS platforms for Saudi clients at Genesis Engineering, managing <span class="metric">1,000+ student accounts</span> with RBAC dashboards.
+
+<span class="role">Why Metamorf:</span>
+Your work in banking-domain digital transformation across the UAE is exactly the kind of high-impact environment I want to work in. I'm open to relocating to Dubai and welcome visa sponsorship discussions.
+
+I've attached my CV. My portfolio and GitHub are available upon request.
+
+<span class="sig">Best regards,
+Muhammad Maaz Ali
+Senior Angular Developer & Frontend Team Lead
+📧 developermaazz@gmail.com
+📱 (+92) 343-0506210
+🔗 linkedin.com/in/developer-maaz
+📍 Islamabad, Pakistan</span></div>
+    </div>
+  </div>
+
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🏥</div>
+      <div>
+        <div class="company-name">Nao Medical → careers@naomedical.com (Healthcare Remote Role)</div>
+        <div class="company-meta">New York, USA · Remote (ET timezone) · <span>$7–9k/yr USD · Pakistan accepted</span></div>
+      </div>
+    </div>
+
+    <div class="template-wrap">
+      <div class="template-label">Application + Cover Email — Nao Medical <span class="badge badge-email">Cold Email</span></div>
+      <div class="template-box" id="em2">
+<button class="copy-btn" onclick="copyTemplate('em2', this)">Copy</button><span class="subj">Subject: Application — Frontend Engineer (Angular) | Remote | Muhammad Maaz Ali</span>
+<span class="hi">Dear Hiring Team,</span>
+
+I am applying for the Frontend Engineer (Angular) position at Nao Medical. With <span class="metric">5+ years</span> of enterprise Angular development and direct healthcare domain experience, I believe I can contribute meaningfully to your mission of delivering accessible, high-quality care through technology.
+
+<span class="role">Healthcare Relevance:</span>
+At Synapse Consulting Inc. (2021–2023), I led frontend development for a <span class="proj">Hospital Management & EMR System</span> serving multi-role clinical teams at US-based private hospitals. I built:
+→ Patient dashboards, lab result modules, and prescription workflows integrated with HIPAA-compliant REST APIs
+→ Role-filtered clinical views for doctors, nurses, and admins supporting <span class="metric">200+ concurrent users</span>
+→ A custom SQL query builder UI that reduced clinical reporting time from hours to minutes
+→ JWT authentication and RBAC across all hospital modules
+
+<span class="role">Technical Profile:</span>
+Angular (v2–v17+) · TypeScript · RxJS · NgRx · Angular Material · REST APIs · Chart.js · D3.js · SSR · Jest · Git · CI/CD
+
+I am comfortable working Eastern Time hours from Islamabad (5–6 hour shift overlap is manageable) and am highly experienced in asynchronous remote collaboration.
+
+Please find my CV attached. I welcome the opportunity to discuss how my healthcare frontend experience supports Nao Medical's growth.
+
+<span class="sig">Best regards,
+Muhammad Maaz Ali
+developermaazz@gmail.com | (+92) 343-0506210
+linkedin.com/in/developer-maaz</span></div>
+    </div>
+  </div>
+
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">🎓</div>
+      <div>
+        <div class="company-name">BloomTech / EdTech Company → Generic Application Email</div>
+        <div class="company-meta">Remote · Pakistan (Lahore) listed · <span>$30k/yr USD · High ATS match</span></div>
+      </div>
+    </div>
+
+    <div class="template-wrap">
+      <div class="template-label">Application Email — EdTech / BloomTech <span class="badge badge-email">Cold Email</span></div>
+      <div class="template-box" id="em3">
+<button class="copy-btn" onclick="copyTemplate('em3', this)">Copy</button><span class="subj">Subject: Angular Developer Application — Muhammad Maaz Ali | Remote | Pakistan</span>
+<span class="hi">Dear Hiring Team,</span>
+
+I am writing to apply for the Angular Developer role. I'm a Senior Angular Developer with <span class="metric">5+ years</span> of experience building scalable, enterprise-grade frontend applications across financial, healthcare, and education domains.
+
+<span class="role">Education Platform Relevance:</span>
+At Genesis Engineering (2023–2024), I built a full-featured <span class="proj">Learning Management System (LMS)</span> for a Saudi enterprise client:
+→ Course management, student enrollment, instructor dashboards, and grading systems for <span class="metric">1,000+ student accounts</span>
+→ Reusable Angular component library adopted across LMS and a separate CMS, <span class="metric">reducing development effort by ~30%</span>
+→ Assignment submission, automated grading, and progress analytics dashboards
+→ RBAC system for Admin, Instructor, and Student roles using Angular Material and PrimeNG
+
+<span class="role">Technical Stack:</span>
+Angular 2–17+ · TypeScript · RxJS · NgRx/Signal Store · PrimeNG · Angular Material · REST APIs · SCSS · Jest · Azure DevOps · Git
+
+I am fully remote-capable, Pakistan-based (UTC+5), and available for flexible scheduling to overlap with your team hours.
+
+<span class="sig">Best regards,
+Muhammad Maaz Ali
+developermaazz@gmail.com | (+92) 343-0506210
+linkedin.com/in/developer-maaz</span></div>
+    </div>
+  </div>
+
+  <div class="company-block">
+    <div class="company-header">
+      <div class="company-icon">⚡</div>
+      <div>
+        <div class="company-name">Generic CTO / VP Engineering — Unsolicited Outreach</div>
+        <div class="company-meta">Use for hidden opportunity companies — AI, SaaS, Fintech startups</div>
+      </div>
+    </div>
+
+    <div class="template-wrap">
+      <div class="template-label">Cold Email to CTO / VP Engineering <span class="badge badge-email">Cold Email</span></div>
+      <div class="template-box" id="em4">
+<button class="copy-btn" onclick="copyTemplate('em4', this)">Copy</button><span class="subj">Subject: Senior Angular Developer — Open to [Company Name] Opportunities</span>
+<span class="hi">Dear [Name],</span>
+
+I've been following [Company]'s work on [specific product / recent launch] and I'm genuinely interested in the engineering challenges you're tackling.
+
+I'm Muhammad Maaz Ali, a Senior Angular Developer and Frontend Team Lead with <span class="metric">5+ years</span> of enterprise experience. I've shipped production Angular applications across financial services, healthcare, and education — including:
+
+→ <span class="proj">Prospect Leap</span> — Financial hire-purchase platform (Angular, NgRx, dynamic form engine, <span class="metric">~40% bundle reduction</span>)
+→ <span class="proj">Hospital Management & EMR System</span> — US healthcare client, <span class="metric">200+ concurrent users</span>, HIPAA-compliant APIs
+→ <span class="proj">LMS Platform</span> — Saudi enterprise, <span class="metric">1,000+ students</span>, full RBAC, reusable component library
+
+My stack: Angular 2–17+, TypeScript, NgRx, RxJS, Signals, SSR, Angular Material, PrimeNG, D3.js, REST APIs, Jest, Azure DevOps.
+
+I'm based in Islamabad, Pakistan and am available for fully remote roles (worldwide). I'm also open to relocation to the UAE or UK with appropriate sponsorship.
+
+If there's an opening or you're planning to grow your frontend team, I'd love a 15-minute conversation.
+
+<span class="sig">Muhammad Maaz Ali
+developermaazz@gmail.com | (+92) 343-0506210
+linkedin.com/in/developer-maaz</span></div>
+    </div>
+
+    <div class="highlight-block">
+      💡 <strong>Pro tip:</strong> Find the company's tech stack via their job postings or GitHub. Replace "[specific product / recent launch]" with something real — "I saw your Angular dashboard demo at [conference]" or "I noticed you're building on Angular 17 from your recent GitHub activity." Personalization = 3× reply rate.
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════ FOLLOW-UPS ══════════════════════ -->
+<div id="followup" class="page">
+  <h1>Follow-Up Messages</h1>
+  <p class="subtitle">Timed follow-up templates for after application, after interview, and post-silence. Concise and professional.</p>
+
+  <h2>7-Day Application Follow-Up</h2>
+  <div class="template-wrap">
+    <div class="template-label">Email Follow-Up — 7 Days After Applying <span class="badge badge-followup">Follow-Up</span></div>
+    <div class="template-box" id="fu1">
+<button class="copy-btn" onclick="copyTemplate('fu1', this)">Copy</button><span class="subj">Subject: Follow-Up — Senior Angular Developer Application | Muhammad Maaz Ali</span>
+<span class="hi">Dear [Recruiter / HR Name],</span>
+
+I applied for the <span class="role">[Role Title]</span> position at <span class="proj">[Company]</span> on <span class="metric">[Date]</span> and wanted to follow up to confirm my application was received and to reiterate my strong interest.
+
+My experience aligns directly with your requirements — particularly my work on <span class="proj">[most relevant project from JD match]</span>, where I [brief relevant achievement].
+
+I'm genuinely excited about this opportunity and happy to provide any additional information, complete a technical assessment, or schedule a call at your convenience.
+
+Thank you for your time.
+
+<span class="sig">Best regards,
+Muhammad Maaz Ali
+developermaazz@gmail.com | (+92) 343-0506210
+linkedin.com/in/developer-maaz</span></div>
+  </div>
+
+  <h2>Post-Interview Thank You (Within 24 Hours)</h2>
+  <div class="template-wrap">
+    <div class="template-label">Post-Interview Thank You <span class="badge badge-followup">Thank You Note</span></div>
+    <div class="template-box" id="fu2">
+<button class="copy-btn" onclick="copyTemplate('fu2', this)">Copy</button><span class="subj">Subject: Thank You — [Role] Interview | Muhammad Maaz Ali</span>
+<span class="hi">Dear [Interviewer Name],</span>
+
+Thank you for taking the time to speak with me today about the <span class="role">[Role Title]</span> position at <span class="proj">[Company]</span>.
+
+I particularly enjoyed our discussion about [specific topic discussed — e.g., "your approach to state management in the platform" / "micro-frontend strategy"]. It reinforced my excitement about contributing to your team.
+
+To recap my relevant background for any open questions:
+→ My NgRx architecture work on <span class="proj">Prospect Leap</span> (financial platform) directly maps to [their challenge]
+→ My experience leading a <span class="metric">3-person frontend team</span> at Hiveworx covers [their leadership requirement]
+
+I'm enthusiastic about the opportunity and look forward to the next steps.
+
+<span class="sig">Best regards,
+Muhammad Maaz Ali
+developermaazz@gmail.com | (+92) 343-0506210</span></div>
+  </div>
+
+  <h2>Second Follow-Up (14 Days After Application — No Response)</h2>
+  <div class="template-wrap">
+    <div class="template-label">Second Follow-Up — 14 Days, No Response <span class="badge badge-followup">Follow-Up</span></div>
+    <div class="template-box" id="fu3">
+<button class="copy-btn" onclick="copyTemplate('fu3', this)">Copy</button><span class="subj">Subject: Re: Senior Angular Developer Application — [Company]</span>
+<span class="hi">Hi [Name],</span>
+
+I wanted to check in once more on my application for the <span class="role">[Role]</span> position. I understand you're managing a busy pipeline and I don't want to over-reach — but I remain very interested in this opportunity.
+
+I recently [brief update — e.g., "completed a new Angular 17 SSR portfolio project" / "received positive feedback from my technical assessment at another company"], which has strengthened my confidence in my readiness for this level of role.
+
+If the position is still open, I'd welcome any update on timing or next steps. If it has been filled, I'd be grateful to be kept in mind for future opportunities.
+
+Thank you again for your time.
+
+<span class="sig">Best regards,
+Muhammad Maaz Ali
+developermaazz@gmail.com | (+92) 343-0506210</span></div>
+  </div>
+
+  <h2>LinkedIn Recruiter — After They View Your Profile</h2>
+  <div class="template-wrap">
+    <div class="template-label">Message When a Recruiter Views Your LinkedIn Profile <span class="badge badge-linkedin">LinkedIn DM</span></div>
+    <div class="template-box" id="fu4">
+<button class="copy-btn" onclick="copyTemplate('fu4', this)">Copy</button><span class="hi">Hi [Name],</span>
+
+I noticed you viewed my profile — thanks for stopping by! I'm actively exploring Senior Angular / Frontend Lead opportunities (remote or UAE/UK relocation).
+
+Quick snapshot: <span class="metric">5+ yrs Angular</span>, currently Team Lead at Hiveworx (enterprise financial platform), previously US healthcare & Saudi edtech clients. Stack: Angular 2–17+, NgRx, RxJS, Signals, SSR, TypeScript.
+
+If you have relevant openings or are building a pipeline, I'd love to connect!
+
+<span class="sig">Muhammad Maaz Ali · developermaazz@gmail.com</span></div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════ ATS KEYWORDS ══════════════════════ -->
+<div id="keywords" class="page">
+  <h1>ATS Keywords & Resume Optimisation</h1>
+  <p class="subtitle">Keywords calibrated to Maaz's exact stack and experience. Paste these throughout resume summary, skills section, and bullet points to beat ATS filters.</p>
+
+  <h2>Primary Keywords (Must Include)</h2>
+  <div class="kw-cloud">
+    <span class="kw kw-primary">Senior Angular Developer</span>
+    <span class="kw kw-primary">Frontend Team Lead</span>
+    <span class="kw kw-primary">Angular 17</span>
+    <span class="kw kw-primary">TypeScript</span>
+    <span class="kw kw-primary">NgRx</span>
+    <span class="kw kw-primary">RxJS</span>
+    <span class="kw kw-primary">Angular Material</span>
+    <span class="kw kw-primary">PrimeNG</span>
+    <span class="kw kw-primary">REST API Integration</span>
+    <span class="kw kw-primary">Enterprise Angular</span>
+    <span class="kw kw-primary">RBAC</span>
+    <span class="kw kw-primary">Role-Based Access Control</span>
+    <span class="kw kw-primary">SSR</span>
+    <span class="kw kw-primary">Angular Universal</span>
+    <span class="kw kw-primary">Lazy Loading</span>
+    <span class="kw kw-primary">Frontend Architecture</span>
+  </div>
+
+  <h2>Secondary Keywords (High-Value)</h2>
+  <div class="kw-cloud">
+    <span class="kw kw-green">Angular Signals</span>
+    <span class="kw kw-green">Signal Store</span>
+    <span class="kw kw-green">NgRx State Management</span>
+    <span class="kw kw-green">Modular Architecture</span>
+    <span class="kw kw-green">OnPush Change Detection</span>
+    <span class="kw kw-green">Virtual Scrolling</span>
+    <span class="kw kw-green">Bundle Optimisation</span>
+    <span class="kw kw-green">Performance Optimisation</span>
+    <span class="kw kw-green">JWT Authentication</span>
+    <span class="kw kw-green">D3.js</span>
+    <span class="kw kw-green">Chart.js</span>
+    <span class="kw kw-green">GoJS</span>
+    <span class="kw kw-green">Bootstrap</span>
+    <span class="kw kw-green">Tailwind CSS</span>
+    <span class="kw kw-green">SCSS</span>
+    <span class="kw kw-green">Component Library</span>
+    <span class="kw kw-green">Agile / Scrum</span>
+    <span class="kw kw-green">Azure DevOps</span>
+    <span class="kw kw-green">CI/CD Pipelines</span>
+    <span class="kw kw-green">Jest</span>
+    <span class="kw kw-green">Karma</span>
+    <span class="kw kw-green">Code Reviews</span>
+    <span class="kw kw-green">Sprint Planning</span>
+    <span class="kw kw-green">API Contract Design</span>
+    <span class="kw kw-green">Flutter</span>
+  </div>
+
+  <h2>Domain / Industry Keywords (Huge Differentiator)</h2>
+  <div class="kw-cloud">
+    <span class="kw">Hire-Purchase Management</span>
+    <span class="kw">Financial Contract Workflow</span>
+    <span class="kw">Hospital Management System</span>
+    <span class="kw">Electronic Medical Records</span>
+    <span class="kw">HIPAA-compliant APIs</span>
+    <span class="kw">Learning Management System</span>
+    <span class="kw">Contract Lifecycle Management</span>
+    <span class="kw">Clinical Dashboard</span>
+    <span class="kw">Multi-department Workflows</span>
+    <span class="kw">US Healthcare Client</span>
+    <span class="kw">Saudi Enterprise Client</span>
+    <span class="kw">International Clients</span>
+  </div>
+
+  <h2>LinkedIn Headline Options</h2>
+  <div style="display:grid;gap:10px;margin-bottom:16px;">
+    <div class="strategy-box">
+      <div class="strategy-row"><span class="arrow">→</span><span><strong>Option A (General):</strong> Senior Angular Developer & Frontend Team Lead | Angular 2–17+ | NgRx · RxJS · SSR | Enterprise Apps | Open to Remote / UAE</span></div>
+      <div class="strategy-row"><span class="arrow">→</span><span><strong>Option B (Domain-heavy):</strong> Senior Angular Developer | Financial & Healthcare Platforms | NgRx · Signals · SSR | Team Lead | Pakistan → Remote/UAE</span></div>
+      <div class="strategy-row"><span class="arrow">→</span><span><strong>Option C (Metric-led):</strong> Senior Angular Dev & Team Lead | 5+ yrs Enterprise Angular | 40% Bundle Reduction | NgRx · RxJS · SSR | Open to Remote</span></div>
+    </div>
+  </div>
+
+  <h2>Resume Summary — Optimised Version</h2>
+  <div class="template-box" id="rs1" style="line-height:1.8;">
+<button class="copy-btn" onclick="copyTemplate('rs1', this)">Copy</button><span class="role">Senior Angular Developer & Frontend Team Lead</span> with <span class="metric">5+ years</span> of experience architecting and delivering enterprise-scale web applications for international clients across <span class="proj">financial, healthcare, and education</span> sectors. Proven ability to lead frontend teams, drive Angular architecture decisions, establish coding standards, and own end-to-end delivery from sprint planning to production.
+
+Deep expertise in <span class="role">Angular (v2–v17+), TypeScript, RxJS, NgRx, Angular Signals, Signal Store, SSR/Hydration, lazy loading, modular architecture,</span> and <span class="role">role-based access control (RBAC)</span>. Delivered measurable results: <span class="metric">~40% bundle size reduction</span> and improved Time-to-Interactive via lazy loading architecture; <span class="metric">~50% list rendering improvement</span> through OnPush + virtual scrolling; dynamic form engine supporting <span class="metric">10+ conditional business rules</span> for financial contract workflows.
+
+Experienced with <span class="role">Angular Material, PrimeNG, Bootstrap, Tailwind CSS, D3.js, Chart.js, GoJS, REST APIs, GraphQL, JWT authentication, Jest, Karma, Azure DevOps, CI/CD pipelines, and Agile/Scrum</span> methodologies. Consistently delivers scalable, high-performance solutions for enterprise clients in the <span class="proj">US, Saudi Arabia, UAE, and Pakistan</span>.
+
+Available for <span class="role">fully remote worldwide</span> opportunities and open to relocation to <span class="role">UAE or UK</span> with appropriate support.</div>
+
+  <div class="highlight-block" style="margin-top:20px;">
+    📌 <strong>ATS Tip:</strong> In Applicant Tracking Systems, your resume is parsed as plain text. Always spell out "NgRx" not "ngrx", "TypeScript" not "TS", "REST APIs" not just "APIs". Repeat your top 5 keywords (Angular, TypeScript, NgRx, RxJS, TypeScript) naturally at least 3× each throughout the document — in summary, experience bullets, and skills section.
+  </div>
+</div>
+
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function copyTemplate(id, btn) {
+    const box = document.getElementById(id);
+    // Get text content, strip HTML tags
+    const text = box.innerText
+      .replace(/^Copy\n/, '')
+      .replace(/^Copy/, '')
+      .trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(() => {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.textContent = '✓ Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
